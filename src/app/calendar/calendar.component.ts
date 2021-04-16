@@ -42,10 +42,11 @@ export class CalendarComponent implements OnInit {
         right: "dayGridMonth,timeGridWeek,timeGridDay",
       },
       //this.currentEvents not working
+      //Error: viewType "" is not available
      // events: this.currentEvents,
 
      // trying local URL
-      events:"src/assets/events.json", 
+      events:"assets/events.json", 
 
       initialView: "dayGridMonth",
       weekends: true,

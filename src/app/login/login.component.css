@@ -3,7 +3,6 @@ body{
 	margin: 0;
 	padding: 0;
 	background: #fff;
-    background-image: url("/assets/image/musicCover.jpg");
 	color: #fff;
 	font-family: Arial;
 	font-size: 12px;
@@ -17,6 +16,7 @@ body{
 	bottom: -40px;
 	width: auto;
 	height: auto;
+	background-image: url("/assets/image/musicCover.jpg");
 	background-size: cover;
 	-webkit-filter: blur(5px);
 	z-index: 0;
