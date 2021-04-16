@@ -1,0 +1,62 @@
+<body>
+  <form
+    [formGroup]="angForm" novalidate
+    (submit)="loginUser($event)"
+    class="form-horizontal"
+    action=""
+    method="POST"
+  >
+    <div class="body"></div>
+    <div class="grad"></div>
+    <div class="header">
+      <div>Music <span>Company</span></div>
+    </div>
+    <br />
+    <div class="ml-5 login form-group">
+      <input
+        class="form-control"
+        formControlName="name"
+        id="username"
+        type="text"
+        placeholder="username"
+        name="user"
+      />
+      <div
+        *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="angForm.controls['name'].errors.required">
+          username is required.
+        </div>
+      </div>
+      <br />
+      <input
+        class="form-control"
+        formControlName="password"
+        id="password"
+        type="password"
+        placeholder="password"
+        name="password"
+      />
+      <div
+        *ngIf="angForm.controls['password'].invalid && (angForm.controls['password'].dirty || angForm.controls['password'].touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="angForm.controls['password'].errors.required">
+          password is required.
+        </div>
+      </div>
+      <br />
+
+      <input
+        [disabled]="angForm.pristine || angForm.invalid"
+        type="submit"
+        value="Login"
+        routerLinkActive="active"
+      />
+      <div *ngIf="usernameOrPasswordIncorrect" class="alert alert-danger mt-2">
+        Username or Password is incorrect.
+      </div>
+    </div>
+  </form>
+</body>
