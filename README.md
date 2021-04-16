@@ -1,27 +1,32 @@
-# MusicCompany
+# Music Company
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+This is a simple app that shows Album songs based on selected day or week.
 
-## Development server
+## Get the code
+``` git clone https://github.com/romeotarko/intelyCare-frontendChallenge.git```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Pre-requisites
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- npm 16.14.4
+- angular 8
 
 ## Build
+For building and running the app you need:
+- npm install
+- ng serve
+- go to `http://localhost:4200/`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Used technologies
+- bootstrap 4
+- primeNg
+- fullCalendar
+- font awesome icons
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Funtionalities
 
-## Running end-to-end tests
+- Login
+- Select date on calendar
+- See all Albums based on their release date
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
