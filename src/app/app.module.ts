@@ -11,8 +11,6 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

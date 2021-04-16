@@ -9,6 +9,7 @@ import {
   EventApi,
   EventClickArg,
 } from "@fullcalendar/angular";
+import { Sound, SoundService } from "../services/sound.service";
 
 @Component({
   selector: "app-calendar",
@@ -16,21 +17,31 @@ import {
   styleUrls: ["./calendar.component.css"],
 })
 export class CalendarComponent implements OnInit {
-  events: any[];
+
   options: CalendarOptions;
   currentEvents: EventApi[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private soundService: SoundService) {}
 
-  ngOnInit() {
+  async ngOnInit() {
+
+  const toCalendarEvent = (sound: Sound):any => new Object({ title: sound.title,id: Date.now().toString, start: sound.release_date })
+  
+   await this.soundService
+    .fetchAllSounds()
+    .then(data => {
+      this.currentEvents = data.map(toCalendarEvent)
+    })
+    .catch(error => alert("Error while fetching the data"));
+
     this.options = {
       plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
       headerToolbar: {
         left: "prev,next today",
         center: "title",
-        right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek",
+        right: "dayGridMonth,timeGridWeek,timeGridDay",
       },
-      events: this.fetchData,
+      events: this.currentEvents,
       initialView: "dayGridMonth",
       weekends: true,
       selectMirror: true,
@@ -44,13 +55,6 @@ export class CalendarComponent implements OnInit {
       eventRemove:
       */
     };
-  }
-
-  fetchData(info, success, callBack) {
-    return this.http
-      .get("assets/events.json")
-      .toPromise()
-      .then((res: any) => <any[]>res.data);
   }
 
   handleDateSelect(selectInfo: DateSelectArg) {
