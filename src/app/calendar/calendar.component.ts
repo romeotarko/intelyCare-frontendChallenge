@@ -41,7 +41,12 @@ export class CalendarComponent implements OnInit {
         center: "title",
         right: "dayGridMonth,timeGridWeek,timeGridDay",
       },
-      events: this.currentEvents,
+      //this.currentEvents not working
+     // events: this.currentEvents,
+
+     // trying local URL
+      events:"src/assets/events.json", 
+
       initialView: "dayGridMonth",
       weekends: true,
       selectMirror: true,
