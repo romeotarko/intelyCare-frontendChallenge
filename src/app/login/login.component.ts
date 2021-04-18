@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
       .then((data) => this.router.navigate(["/calendar"]))
       .catch((error) => {
         this.usernameOrPasswordIncorrect = true;
-        console.error("error during login");
+  
       });
   }
 }

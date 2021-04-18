@@ -15,17 +15,17 @@
     <div class="ml-5 login form-group">
       <input
         class="form-control"
-        formControlName="name"
+        formControlName="username"
         id="username"
         type="text"
         placeholder="username"
         name="user"
       />
       <div
-        *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)"
+        *ngIf="angForm.controls['username'].invalid && (angForm.controls['username'].dirty || angForm.controls['username'].touched)"
         class="alert alert-danger"
       >
-        <div *ngIf="angForm.controls['name'].errors.required">
+        <div *ngIf="angForm.controls['username'].errors.required">
           username is required.
         </div>
       </div>
