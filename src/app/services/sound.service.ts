@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 export interface Sound{
   artist: String[]
@@ -15,9 +16,14 @@ export class SoundService {
 
   constructor(private http: HttpClient) { }
 
-  async fetchAllSounds(): Promise<Sound[]> {
+
+/*  async fetchAllSounds(): Promise<Sound[]> {
     return this.http.get<Sound[]>("assets/db.json")
             .toPromise()
+  } */
+
+ fetchAllSoundsNew(): Observable<Sound[]> {
+    return this.http.get<Sound[]>("assets/db.json")
   }
 
 }

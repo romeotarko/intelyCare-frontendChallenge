@@ -21,9 +21,9 @@ export class UserService {
       const user = DEFAULT_USERS.find(
         (u) => u.username === username && u.password === password
       );
-
       if (user) {
         resolve(user);
+        localStorage.setItem(' user',JSON.stringify(user));
       } else {
         reject();
       }

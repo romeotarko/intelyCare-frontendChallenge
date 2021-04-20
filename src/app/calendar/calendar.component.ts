@@ -16,23 +16,24 @@ import { Sound, SoundService } from "../services/sound.service";
   styleUrls: ["./calendar.component.css"],
 })
 export class CalendarComponent implements OnInit {
-
   options: CalendarOptions;
   currentEvents: EventApi[] = [];
 
   constructor(private soundService: SoundService) {}
 
   async ngOnInit() {
+    const toCalendarEvent = (sound: Sound): any =>
+      new Object({
+        title: sound.title,
+        id: Date.now().toString,
+        start: sound.release_date,
+      });
 
-  const toCalendarEvent = (sound: Sound):any => new Object({ title: sound.title,id: Date.now().toString, start: sound.release_date })
-  
-   await this.soundService
-    .fetchAllSounds()
-    .then(data => {
-      this.currentEvents = data.map(toCalendarEvent)
-    })
-    .catch(error => alert("Error while fetching the data"));
+    //  await this.soundService
+    //     .fetchAllSounds()
+    //     .then(data => {this.currentEvents = data.map(toCalendarEvent)}).catch(error => alert("Error while fetching the data"));
 
+    this.soundService.fetchAllSoundsNew().subscribe(x => {console.warn(x, 'test')});
     this.options = {
       plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
       headerToolbar: {
@@ -44,8 +45,8 @@ export class CalendarComponent implements OnInit {
       //Error: viewType "" is not available
       events: this.currentEvents,
 
-     // trying local URL
-     // events:"assets/events.json", 
+      // trying local URL
+      // events:"assets/events.json",
 
       initialView: "dayGridMonth",
       weekends: true,
